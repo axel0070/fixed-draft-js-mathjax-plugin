@@ -4,7 +4,7 @@ import {
   findInlineTeXEntities,
 } from './utils'
 import loadMathJax from './mathjax/loadMathJax'
-import initCompletion from './mathjax/completion'
+//import initCompletion from './mathjax/completion' => Remove auto completion
 import insertTeX from './modifiers/insertTeX'
 import InlineTeX from './components/InlineTeX'
 import TeXBlock from './components/TeXBlock'
@@ -17,7 +17,7 @@ const defaultConfig = {
 const createMathjaxPlugin = (config = {}) => {
   const {
     macros,
-    completion,
+    //completion, => Remove auto completion
     script,
     mathjaxConfig,
   } = Object.assign(defaultConfig, config)
@@ -30,7 +30,7 @@ const createMathjaxPlugin = (config = {}) => {
     getReadOnly: undefined,
     setReadOnly: undefined,
     getEditorRef: undefined,
-    completion: initCompletion(completion, macros),
+    //completion: initCompletion(completion, macros), => Remove auto completion
     teXToUpdate: {},
   }
 
@@ -131,7 +131,7 @@ const createMathjaxPlugin = (config = {}) => {
       store.getReadOnly = getReadOnly
       store.setReadOnly = setReadOnly
       store.getEditorRef = getEditorRef
-      store.completion = store.completion(getEditorState())
+      //store.completion = store.completion(getEditorState()) => Remove auto completion
       // store.completion.mostUsedTeXCommands =
       //   getInitialMostUsedTeXCmds(getEditorState())
     },
